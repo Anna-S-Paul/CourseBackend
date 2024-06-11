@@ -27,13 +27,13 @@ app.get(
 
 app.get(
     "/viewall", (req, res) => {
-        coursemodel.find().get(
+        coursemodel.find().then(
             (data)=>{
                 res.json(data)
             }
         ).catch(
             (error)=>{
-                res.json(error)
+
             }
         )
     }
