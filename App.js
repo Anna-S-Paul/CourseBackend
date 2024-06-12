@@ -19,9 +19,18 @@ app.post(
     }
 )
 
-app.get(
+app.post(
     "/search", (req, res) => {
-        res.send("Search done")
+        let input=req.body
+        coursemodel.find(input).then(
+            (data)=>{
+                res.json(data)
+            }
+        ).catch(
+            (error)=>{
+                res.json(error)
+            }
+        )
     }
 )
 
